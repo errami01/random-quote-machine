@@ -1,0 +1,45 @@
+*{
+  box-sizing: border-box;
+  /* border: 1px solid  */
+}
+html {
+  height: 100%;
+}
+body{
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  height: 100%;
+  padding: 0;
+  margin : 0;
+}
+#root{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: blue; */
+  height: 100%;
+  background : #907420;
+  color: #907420 
+}
+.App{
+  /* margin-top: auto; */
+  width: 480px;
+  min-height: 200px;
+  background: white;
+  padding: 20px
+}
+.bottom-container{
+  display: flex;
+  align-items: center;
+}
+.fa-brands{
+  font-size: 36px;
+  margin-right: 10px;
+  
+}
+.newQuote-btn{
+  height: 34px;
+  margin-left: auto;
+}
