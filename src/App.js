@@ -1,13 +1,18 @@
 
 import './App.css';
-
+import { useEffect } from 'react';
+// https://api.quotable.io/random?tags=technology,famous-quotes
 function App() {
   const mainColor= `#${Math.floor(Math.random()*1000000)}`
-  // const root = document.querySelector("#root")
-  // root.style.background = mainColor
+  
   const htmlRoot = document.querySelector(":root")
   htmlRoot.style.setProperty('--main-color', mainColor)
   // console.log(htmlRoot.getPropertyValue('height'))
+  useEffect(()=>{
+    fetch('https://api.quotable.io/random?tags=technology,famous-quotes')
+    .then(res=> res.json())
+    .then(res=> console.log(res))
+  },[])
   return (
     <div className="App">
       <h1 className='quote--h1'><i className="fa-solid fa-quote-left"></i>When I let go of what I am, I become what I might be.</h1>

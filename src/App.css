@@ -5,6 +5,7 @@
 :root {
   --main-color: black;
   height: 100%;
+  
 }
 body{
  
@@ -19,6 +20,7 @@ body{
   /* background: blue; */
   height: 100%;
   background : var(--main-color);
+  /* transition: background 5s; */
   
 }
 .App{
@@ -43,9 +45,13 @@ body{
   
 }
 .newQuote-btn{
-  height: 34px;
+  /* height: 34px; */
   margin-left: auto;
   color: white;
   border: none;
   background: var(--main-color);
+  transition: background 5s;
+}
+.newQuote-btn, .fa-brands, #root{
+  transition: background 5s;
 }
