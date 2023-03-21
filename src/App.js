@@ -3,7 +3,11 @@ import './App.css';
 
 function App() {
   const mainColor= `#${Math.floor(Math.random()*1000000)}`
-  console.log(mainColor)
+  // const root = document.querySelector("#root")
+  // root.style.background = mainColor
+  const htmlRoot = document.querySelector(":root")
+  htmlRoot.style.setProperty('--main-color', mainColor)
+  // console.log(htmlRoot.getPropertyValue('height'))
   return (
     <div className="App">
       <h1 className='quote--h1'><i className="fa-solid fa-quote-left"></i>When I let go of what I am, I become what I might be.</h1>
@@ -11,7 +15,7 @@ function App() {
       <div className='bottom-container'>
         <i className="fa-brands fa-square-twitter"></i>
         <i className="fa-brands fa-square-tumblr"></i>
-        <button className='newQuote-btn' style={{background: mainColor}}>
+        <button className='newQuote-btn' >
           New quote
         </button>
       </div>

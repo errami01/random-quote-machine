@@ -1,15 +1,13 @@
 *{
   box-sizing: border-box;
-  /* border: 1px solid  */
+  border: 1px solid 
 }
-html {
+:root {
+  --main-color: black;
   height: 100%;
 }
 body{
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-items: center; */
+ 
   height: 100%;
   padding: 0;
   margin : 0;
@@ -20,15 +18,20 @@ body{
   align-items: center;
   /* background: blue; */
   height: 100%;
-  background : #907420;
-  color: #907420 
+  background : var(--main-color);
+  
 }
 .App{
   /* margin-top: auto; */
   width: 480px;
   min-height: 200px;
   background: white;
-  padding: 20px
+  padding: 20px;
+  color:  var(--main-color);
+  border-radius: 5px;
+}
+.author--h5{
+  text-align: right;
 }
 .bottom-container{
   display: flex;
@@ -42,4 +45,7 @@ body{
 .newQuote-btn{
   height: 34px;
   margin-left: auto;
+  color: white;
+  border: none;
+  background: var(--main-color);
 }
