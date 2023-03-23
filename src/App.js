@@ -6,7 +6,9 @@ import { useEffect, useState } from 'react';
 function App() {
   const [mainColor, setMainColor] = useState("")
   const [data, setData] = useState({})
+  const [isLoading, setIsLoading] = useState()
   const [clicked, setClicked] = useState(0)
+
   
    async function handleNewQuote(){
     const toFadeOut = document.querySelectorAll('.toFadeOut')
