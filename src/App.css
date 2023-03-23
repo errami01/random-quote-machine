@@ -1,6 +1,6 @@
 *{
   box-sizing: border-box;
-  border: 1px solid 
+  /* border: 1px solid  */
 }
 :root {
   --main-color: black;
@@ -14,23 +14,29 @@ body{
   margin : 0;
 }
 #root{
+  height: 100%
+}
+.background-div{
   display: flex;
   justify-content: center;
   align-items: center;
   /* background: blue; */
   height: 100%;
-  background : var(--main-color);
+  background-color : var(--main-color);
   /* transition: background 5s; */
-  
+  animation: fadeIn 2s;
 }
 .App{
   /* margin-top: auto; */
   width: 480px;
   min-height: 200px;
-  background: white;
+  background-color: white;
   padding: 20px;
   color:  var(--main-color);
   border-radius: 5px;
+}
+.quote--h1{
+
 }
 .author--h5{
   text-align: right;
@@ -45,13 +51,25 @@ body{
   
 }
 .newQuote-btn{
-  /* height: 34px; */
+  height: 34px;
   margin-left: auto;
   color: white;
   border: none;
-  background: var(--main-color);
-  transition: background 5s;
+  background-color: var(--main-color);
+  /* transition: background-color 5s; */
+
 }
 .newQuote-btn, .fa-brands, #root{
-  transition: background 5s;
+  /* transition: background-color 5s; */
 }
+.quote--h1, .author--h5{
+  animation: fadeIn 3s
+}
+ @keyframes fadeIn{
+  0% {opacity:0} 
+  100%{opacity: 100%}
+ }
+  @keyframes fadeOut{
+    0%{opacity: 100%}
+    100%{opacity: 0}
+  }
