@@ -8,7 +8,7 @@ function App() {
   const [data, setData] = useState({})
   const [isLoading, setIsLoading] = useState(false)
   const [clicked, setClicked] = useState(0)
-
+  
   
    async function handleNewQuote(){
     const toFadeOut = document.querySelectorAll('.toFadeOut')
@@ -20,6 +20,7 @@ function App() {
       
       })
     await myPromise
+    
     setClicked((prev)=> prev+1)
     
   }
@@ -37,7 +38,7 @@ function App() {
   return (
     <div className='background-div'>
       <div key={clicked} className="App">
-        <h1 className='quote--h1 toFadeOut' ><i className="fa-solid fa-quote-left"></i>{data.content}</h1>
+        <h1 className='quote--h1 toFadeOut' ><i className="fa-solid fa-quote-left"></i>{isLoading? "":data.content}</h1>
         <h5 className='author--h5 toFadeOut'>- {data.author}</h5>
         <div className='bottom-container'>
           <i className="fa-brands fa-square-twitter .toFadeOut" ></i>
