@@ -57,13 +57,13 @@ function App() {
  
   return (
     <div className='background-div' ref={backgrounDiv}>
-      <div key={clicked} className="App">
-        <h1 className='quote--h1' ref={(ele)=>(toFadeOut.current[0] = ele)}><i className="fa-solid fa-quote-left"></i>{currentData.current.content} </h1>
-        <h5 className='author--h5' ref={(ele)=>(toFadeOut.current[1] = ele)}>- {currentData.current.author}</h5>
-        <div className='bottom-container'>
-          <span className='icon'><i className="fa-brands fa-square-twitter" ></i></span>
+      <div key={clicked} className="App" id='quote-box'>
+        <h1 className='quote--h1' ref={(ele)=>(toFadeOut.current[0] = ele)}  id="text"><i className="fa-solid fa-quote-left"></i>{currentData.current.content} </h1>
+        <h5 className='author--h5' ref={(ele)=>(toFadeOut.current[1] = ele)} id="author">- {currentData.current.author}</h5>
+        <div className='bottom-container' >
+          <a href='https://twitter.com/intent/tweet' target="_blank" id='tweet-quote'><span className='icon' ><i className="fa-brands fa-square-twitter" ></i></span></a>
           <span className='icon'><i className="fa-brands fa-square-tumblr"></i></span>
-          <button className='newQuote-btn .toFadeOut' onClick={handleNewQuote} >
+          <button className='newQuote-btn .toFadeOut' onClick={handleNewQuote} id="new-quote">
             New quote
           </button>
         </div>

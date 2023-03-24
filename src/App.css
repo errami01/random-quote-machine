@@ -46,9 +46,14 @@ body{
   display: flex;
   align-items: center;
 }
+a {
+  
+  text-decoration: none; /* no underline */
+}
 .fa-brands{
   font-size: 36px;
   margin-right: 10px;
+  color: var(--main-color);
   transition: color 1s;
 }
 .newQuote-btn{
