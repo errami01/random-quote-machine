@@ -1,33 +1,30 @@
 
 import './App.css';
 import { useEffect, useState, useRef } from 'react';
-
+const fadeOut ='fadeOut 1s'
 // https://api.quotable.io/random?tags=technology,famous-quotes
 function App() {
-  const [mainColor, setMainColor] = useState("")
+  // const [mainColor, setMainColor] = useState("")
   const [data, setData] = useState({})
   // const [isLoading, setIsLoading] = useState(false)
   const [clicked, setClicked] = useState(0)
   const [firstLoad, setFirstLoad] = useState(true)
   const nextData = useRef({})
   const currentData = useRef({})
-  
+  const backgrounDiv = useRef()
+  const mainColor = useRef(`#${Math.ceil(Math.random()*999999)}`)
+  const toFadeOut = useRef([])
   console.log(`${nextData}`)
   console.log("current "+currentData)
   
    function handleNewQuote(){
     currentData.current = nextData.current
-    const toFadeOut = document.querySelectorAll('.toFadeOut')
-    toFadeOut.forEach((elem)=>elem.style.animation="fadeOut 2s")
-    htmlRoot.style.animation = "fadeOut 1s"
-    //   let myPromise = new Promise((resolve)=>{
-    //     setTimeout(()=>(resolve('ok')), 1000) 
-        
-      
-    //   })
-    // await myPromise
-    // setIsLoading(true)
-    setTimeout(()=>setClicked((prev)=> prev+1),1000)
+    toFadeOut.current.forEach((ele)=>{ele.style.animation = fadeOut})
+    backgrounDiv.current.style.setProperty('--main-color', `#${Math.ceil(Math.random()*999999)}`)
+    
+    // htmlRoot.style.animation = "fadeOut 1s"
+    
+    setTimeout(()=>setClicked((prev)=> prev+1),500)
     
   }
   const htmlRoot = document.querySelector(":root")
@@ -51,20 +48,17 @@ function App() {
       setFirstLoad(false)
       // setMainColor(`#${Math.ceil(Math.random()*999999)}`)
     
-    })}
-    
-
-    
+    })}   
   },[clicked])
  
   return (
-    <div className='background-div'>
+    <div className='background-div' ref={backgrounDiv}>
       <div key={clicked} className="App">
-        <h1 className='quote--h1 toFadeOut' ><i className="fa-solid fa-quote-left"></i>{currentData.current.content} </h1>
-        <h5 className='author--h5 toFadeOut'>- {data.author}</h5>
+        <h1 className='quote--h1' ref={(ele)=>(toFadeOut.current[0] = ele)}><i className="fa-solid fa-quote-left"></i>{currentData.current.content} </h1>
+        <h5 className='author--h5' ref={(ele)=>(toFadeOut.current[1] = ele)}>- {currentData.current.author}</h5>
         <div className='bottom-container'>
-          <i className="fa-brands fa-square-twitter .toFadeOut" ></i>
-          <i className="fa-brands fa-square-tumblr .toFadeOut"></i>
+          <span className='icon'><i className="fa-brands fa-square-twitter" ></i></span>
+          <span className='icon'><i className="fa-brands fa-square-tumblr"></i></span>
           <button className='newQuote-btn .toFadeOut' onClick={handleNewQuote} >
             New quote
           </button>

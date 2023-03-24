@@ -3,7 +3,7 @@
   /* border: 1px solid  */
 }
 :root {
-  --main-color: black;
+  
   height: 100%;
   
 }
@@ -17,6 +17,7 @@ body{
   height: 100%
 }
 .background-div{
+  --main-color: green;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +49,7 @@ body{
 .fa-brands{
   font-size: 36px;
   margin-right: 10px;
-  
+  transition: color 1s;
 }
 .newQuote-btn{
   height: 34px;
@@ -59,11 +60,11 @@ body{
   /* transition: background-color 5s; */
 
 }
-.newQuote-btn, .fa-brands, #root{
-  /* transition: background-color 5s; */
+.newQuote-btn, .background-div{
+  transition: background-color 1s;
 }
 .quote--h1, .author--h5{
-  animation: fadeIn 3s
+  animation: fadeIn 1s
 }
  @keyframes fadeIn{
   0% {opacity:0} 
