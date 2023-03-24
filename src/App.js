@@ -12,19 +12,22 @@ function App() {
   const nextData = useRef({})
   const currentData = useRef({})
   const backgrounDiv = useRef()
-  const mainColor = useRef(`#${Math.ceil(Math.random()*999999)}`)
+  const mainColor = useRef(`#${Math.ceil(Math.random()*999999).toString()}`)
   const toFadeOut = useRef([])
-  console.log(`${nextData}`)
-  console.log("current "+currentData)
-  
+  console.log(`#${Math.random().toString().slice(2,8) }`)
+  // console.log("current "+currentData)
+  // if(firstLoad) backgrounDiv.current.style.setProperty('--main-color', `#${Math.ceil(Math.random()*999999).toString()}`)
    function handleNewQuote(){
     currentData.current = nextData.current
     toFadeOut.current.forEach((ele)=>{ele.style.animation = fadeOut})
-    backgrounDiv.current.style.setProperty('--main-color', `#${Math.ceil(Math.random()*999999)}`)
     
     // htmlRoot.style.animation = "fadeOut 1s"
     
-    setTimeout(()=>setClicked((prev)=> prev+1),500)
+    setTimeout(()=>{
+    backgrounDiv.current.style.setProperty('--main-color', `#${Math.random().toString().slice(2,8)}`)
+    setClicked((prev)=> prev+1)
+
+    },500)
     
   }
   const htmlRoot = document.querySelector(":root")
@@ -36,7 +39,7 @@ function App() {
     .then(res=> {
       nextData.current = res
       // setIsLoading(false)
-      // setMainColor(`#${Math.ceil(Math.random()*999999)}`)
+      // setMainColor(`#${Math.ceil(Math.random()*999999).toString() }`)
     
     })
 
@@ -44,6 +47,7 @@ function App() {
     {fetch('https://api.quotable.io/random?')
     .then(res=> res.json())
     .then(res=> {
+      backgrounDiv.current.style.setProperty('--main-color', `#${Math.random().toString().slice(2,8)}`)
       currentData.current = res
       setFirstLoad(false)
       // setMainColor(`#${Math.ceil(Math.random()*999999)}`)

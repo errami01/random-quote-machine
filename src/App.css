@@ -17,7 +17,7 @@ body{
   height: 100%
 }
 .background-div{
-  --main-color: green;
+  --main-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
